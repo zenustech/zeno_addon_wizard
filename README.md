@@ -1,30 +1,24 @@
-# ZENO Private Repository
+# ZENO Addon Wizard
 
-Holding private ZENO projects that aren't open-source.
+Demo project showing on how to add custom nodes to ZENO.
 
-# Setup (important)
+# Setup
 
-First of all, please add this to your `~/.bashrc`:
+First of all, run this command:
 ```bash
-[ -f .bash_localrc ] && . .bash_localrc
+git submodule update --init --recursive
 ```
-Then quit, and restart the shell.
-(This is to add `external/zeno` to `PYTHONPATH` every time you enter this folder)
+To fetch ZENO which is included a submodule.
 
 ## Build
 
 ```bash
-git submodule update --init --recursive
-make all
+cmake -B build
+make -C build -j 32
 ```
 
 ## Run
 
 ```bash
-make run
+./run.py
 ```
-
-## Windows
-
-"自生自灭", we could ensure Linux-only across the company in our private repo, ain't we?
-aye!
