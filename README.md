@@ -14,7 +14,7 @@ To fetch ZENO which is included a submodule.
 
 ```bash
 cmake -B build
-make -C build -j 32
+cmake --build build --parallel
 ```
 
 ## Run
