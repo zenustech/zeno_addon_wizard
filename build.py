@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
-import os, sys
+import subprocess
 
-sys.exit(os.system('cmake -B build && cmake --build build --parallel'))
+subprocess.check_call(['cmake', '-B', 'build'])
+subprocess.check_call(['cmake', '--build', 'build', '--parallel'])

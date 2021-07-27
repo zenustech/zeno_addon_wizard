@@ -1,4 +1,4 @@
-/* This is an demo on how to use custom objects in ZENO */
+// This is an demo on how to use custom objects in ZENO
 #include <zeno/zeno.h>
 #include <cstdio>
 
