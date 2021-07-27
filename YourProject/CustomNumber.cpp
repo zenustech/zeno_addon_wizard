@@ -1,22 +1,23 @@
+/* This is an demo on how to use custom objects in ZENO */
 #include <zeno/zeno.h>
 #include <cstdio>
 
-struct Number : zeno::IObject {
+struct CustomNumber : zeno::IObject {
     int value;
 };
 
 
-struct MakeNumber : zeno::INode {
+struct MakeCustomNumber : zeno::INode {
     virtual void apply() override {
-        printf("MakeNumber::apply() called!\n");
+        printf("MakeCustomNumber::apply() called!\n");
         int value = get_param<int>("value");
-        auto obj = std::make_shared<Number>();
+        auto obj = std::make_shared<CustomNumber>();
         obj->value = value;
         set_output("obj", std::move(obj));
     }
 };
 
-ZENDEFNODE(MakeNumber,
+ZENDEFNODE(MakeCustomNumber,
         { /* inputs: */ {
         }, /* outputs: */ {
         "obj",
@@ -27,18 +28,18 @@ ZENDEFNODE(MakeNumber,
         }});
 
 
-struct NumberAdd : zeno::INode {
+struct CustomNumberAdd : zeno::INode {
     virtual void apply() override {
-        printf("NumberAdd::apply() called!\n");
-        auto lhs = get_input<Number>("lhs");
-        auto rhs = get_input<Number>("rhs");
-        auto result = std::make_shared<Number>();
+        printf("CustomNumberAdd::apply() called!\n");
+        auto lhs = get_input<CustomNumber>("lhs");
+        auto rhs = get_input<CustomNumber>("rhs");
+        auto result = std::make_shared<CustomNumber>();
         result->value = lhs->value + rhs->value;
         set_output("result", std::move(result));
     }
 };
 
-ZENDEFNODE(NumberAdd,
+ZENDEFNODE(CustomNumberAdd,
         { /* inputs: */ {
         "lhs", "rhs",
         }, /* outputs: */ {
@@ -49,19 +50,19 @@ ZENDEFNODE(NumberAdd,
         }});
 
 
-struct NumberPrint : zeno::INode {
+struct CustomNumberPrint : zeno::INode {
     virtual void apply() override {
-        printf("NumberPrint::apply() called!\n");
+        printf("CustomNumberPrint::apply() called!\n");
         if (has_input("obj")) {
-            auto obj = get_input<Number>("obj");
-            printf("NumberPrint: object value is %d\n", obj->value);
+            auto obj = get_input<CustomNumber>("obj");
+            printf("CustomNumberPrint: object value is %d\n", obj->value);
         } else {
             printf("input socket `obj` not connected!\n");
         }
     }
 };
 
-ZENDEFNODE(NumberPrint,
+ZENDEFNODE(CustomNumberPrint,
         { /* inputs: */ {
         "obj",
         }, /* outputs: */ {
