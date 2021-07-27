@@ -43,12 +43,9 @@ struct MyColorizePrimitive : zeno::INode {
 ZENDEFNODE(MyColorizePrimitive,
         { /* inputs: */ {
         // input descriptors follows the format: {type, name}
-        //
         // the `name` is that you can use in get_input(name)
-        //
         // the `type` is just a hint to the editor to prevent
         // user from misconnecting wrong type to them
-        //
         {"primitive", "prim"},
         }, /* outputs: */ {
         {"primitive", "prim"},

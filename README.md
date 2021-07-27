@@ -22,3 +22,10 @@ cmake --build build --parallel
 ```bash
 ./run.py
 ```
+
+# Coding
+
+The `YourProject/` is a demo project for showing how to add custom nodes in ZENO.
+
+See [MyPrimitiveOps.cpp](YourProject/MyPrimitiveOps.cpp) for custom primitive operation.
+See [CustomNumber.cpp](YourProject/CustomNumber.cpp) for defining custom object.
