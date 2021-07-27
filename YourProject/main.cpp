@@ -23,7 +23,7 @@ ZENDEFNODE(MakeNumber,
         }, /* params: */ {
         {"int", "value", "233 0"},  // defl min max; defl min; defl
         }, /* category: */ {
-        "demo_project",
+        "YourProject",
         }});
 
 
@@ -45,7 +45,7 @@ ZENDEFNODE(NumberAdd,
         "result",
         }, /* params: */ {
         }, /* category: */ {
-        "demo_project",
+        "YourProject",
         }});
 
 
@@ -67,5 +67,5 @@ ZENDEFNODE(NumberPrint,
         }, /* outputs: */ {
         }, /* params: */ {
         }, /* category: */ {
-        "demo_project",
+        "YourProject",
         }});
