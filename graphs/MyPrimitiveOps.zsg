@@ -22,12 +22,10 @@
       "isCentered": 0
      },
      "uipos": [
-      -218.0,
+      -590.0,
       -66.0
      ],
-     "options": [
-      "VIEW"
-     ]
+     "options": []
     },
     "42684d58-NumericInt": {
      "name": "NumericInt",
@@ -38,16 +36,70 @@
       "value": 16
      },
      "uipos": [
-      -481.0,
+      -852.0,
       -43.0
+     ],
+     "options": []
+    },
+    "4d3edae1-MyTranslatePrimitive": {
+     "name": "MyTranslatePrimitive",
+     "inputs": {
+      "prim": [
+       "8f2d5c01-MyColorizePrimitive",
+       "prim"
+      ],
+      "offset": [
+       "06e11537-NumericVec3",
+       "vec3"
+      ],
+      "SRC": null
+     },
+     "params": {},
+     "uipos": [
+      235.92499999999995,
+      29.96249999999999
+     ],
+     "options": [
+      "VIEW"
+     ]
+    },
+    "06e11537-NumericVec3": {
+     "name": "NumericVec3",
+     "inputs": {
+      "SRC": null
+     },
+     "params": {
+      "x": -0.5,
+      "y": 0.0,
+      "z": -0.5
+     },
+     "uipos": [
+      10.725000000000065,
+      187.3625
+     ],
+     "options": []
+    },
+    "8f2d5c01-MyColorizePrimitive": {
+     "name": "MyColorizePrimitive",
+     "inputs": {
+      "prim": [
+       "27f1f837-Make3DGridPrimitive",
+       "prim"
+      ],
+      "SRC": null
+     },
+     "params": {},
+     "uipos": [
+      -253.875,
+      62.562500000000014
      ],
      "options": []
     }
    },
    "view": {
-    "scale": 1,
-    "trans_x": -582,
-    "trans_y": -297
+    "scale": 1.0000000000000002,
+    "trans_x": -852,
+    "trans_y": -184
    }
   }
  },
@@ -2546,6 +2598,71 @@
    "params": [],
    "categories": [
     "primitive"
+   ]
+  },
+  "MyColorizePrimitive": {
+   "inputs": [
+    [
+     "primitive",
+     "prim",
+     ""
+    ],
+    [
+     "",
+     "SRC",
+     ""
+    ]
+   ],
+   "outputs": [
+    [
+     "primitive",
+     "prim",
+     ""
+    ],
+    [
+     "",
+     "DST",
+     ""
+    ]
+   ],
+   "params": [],
+   "categories": [
+    "YourProject"
+   ]
+  },
+  "MyTranslatePrimitive": {
+   "inputs": [
+    [
+     "primitive",
+     "prim",
+     ""
+    ],
+    [
+     "numeric:vec3f",
+     "offset",
+     ""
+    ],
+    [
+     "",
+     "SRC",
+     ""
+    ]
+   ],
+   "outputs": [
+    [
+     "primitive",
+     "prim",
+     ""
+    ],
+    [
+     "",
+     "DST",
+     ""
+    ]
+   ],
+   "params": [],
+   "categories": [
+    "YourProject"
    ]
   },
   "NumericFloat": {
