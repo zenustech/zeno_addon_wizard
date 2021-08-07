@@ -1,7 +1,7 @@
 // An demo on how to work with the built-in PrimitiveObject of ZENO
 #include <zeno/zeno.h>
-#include <zeno/PrimitiveObject.h>
-#include <zeno/NumericObject.h>
+#include <zeno/types/PrimitiveObject.h>
+#include <zeno/types/NumericObject.h>
 #include <cstdio>
 
 // a simple node that colorize a PrimitiveObject by XYZ coordinates of vertices
