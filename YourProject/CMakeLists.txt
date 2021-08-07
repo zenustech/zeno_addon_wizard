@@ -4,7 +4,7 @@ cmake_minimum_required(VERSION 3.10)
 add_library(YourProject SHARED CustomNumber.cpp MyPrimitiveOps.cpp)
 
 # Link the libzeno.so to invoke ZENO API
-target_link_libraries(YourProject PRIVATE zeno)
+target_link_libraries(YourProject PUBLIC zeno)
 
 if (WIN32)
     # On Windows, due to that fact that it doesn't support RPATH,
