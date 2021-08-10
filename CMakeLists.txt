@@ -15,11 +15,11 @@ add_subdirectory(external/zeno)
 # Add your project
 add_subdirectory(YourProject)
 
-# Output YourProject.dll to external/zeno/zenqt/lib
+# Output zeno_YourProject.dll to external/zeno/zenqt/lib
 # so that ZENO editor will auto-load your extension on start up
 get_property(OUTPUT_DIR TARGET zeno
     PROPERTY LIBRARY_OUTPUT_DIRECTORY)
-set_target_properties(YourProject PROPERTIES
+set_target_properties(zeno_YourProject PROPERTIES
     LIBRARY_OUTPUT_DIRECTORY ${OUTPUT_DIR}
     RUNTIME_OUTPUT_DIRECTORY ${OUTPUT_DIR}
     ARCHIVE_OUTPUT_DIRECTORY ${OUTPUT_DIR}
