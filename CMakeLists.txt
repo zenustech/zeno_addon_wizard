@@ -9,11 +9,30 @@ endif()
 # Enable C++17 support
 set(CMAKE_CXX_STANDARD 17)
 
-# Ask PyZENO to link with your target
-set(ZENO_ADDITIONAL_LINKS YourProject)
+function(add_zeno_autoload target)
+    if (ZENO_ENABLE_PYTHON)
+        get_target_property(OUT_DIR TARGET zeno
+            PROPERTY LIBRARY_OUTPUT_DIRECTORY)
+        set_target_properties(${target} PROPERTIES
+            LIBRARY_OUTPUT_DIRECTORY ${OUTPUT_DIR}
+            RUNTIME_OUTPUT_DIRECTORY ${OUTPUT_DIR}
+            ARCHIVE_OUTPUT_DIRECTORY ${OUTPUT_DIR}
+            LIBRARY_OUTPUT_DIRECTORY_DEBUG ${OUTPUT_DIR}
+            RUNTIME_OUTPUT_DIRECTORY_DEBUG ${OUTPUT_DIR}
+            ARCHIVE_OUTPUT_DIRECTORY_DEBUG ${OUTPUT_DIR}
+            LIBRARY_OUTPUT_DIRECTORY_RELEASE ${OUTPUT_DIR}
+            RUNTIME_OUTPUT_DIRECTORY_RELEASE ${OUTPUT_DIR}
+            ARCHIVE_OUTPUT_DIRECTORY_RELEASE ${OUTPUT_DIR}
+            )
+    endif()
+endfunction()
 
 # Import ZENO
 add_subdirectory(external/zeno)
 
 # Add your project
 add_subdirectory(YourProject)
+
+# Output YourProject.dll to external/zeno/zenqt/lib
+# so that ZENO editor will auto-load your extension on start up
+add_zeno_autoload(YourProject)
