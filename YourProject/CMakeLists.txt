@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 
-# SHARED is required for ZENO libraries
-add_library(YourProject SHARED CustomNumber.cpp MyPrimitiveOps.cpp)
+# ZENO extension must be a shared library with 'zeno_' as prefix:
+add_library(zeno_YourProject SHARED CustomNumber.cpp MyPrimitiveOps.cpp)
 
 # Link the libzeno.so to invoke ZENO API
-target_link_libraries(YourProject PUBLIC zeno)
+target_link_libraries(zeno_YourProject PUBLIC zeno)
