@@ -1,32 +1,30 @@
 cmake_minimum_required(VERSION 3.10)
+# Enable C++17 support first
+set(CMAKE_CXX_STANDARD 17)
 project(zeno_addon_wizard LANGUAGES C CXX)
 
-if (WIN32)
-    # Windows should always use Release build to prevent possible traps
-    set(CMAKE_BUILD_TYPE Release)
+# Use RelWithDebInfo mode by default
+if (NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE RelWithDebInfo)
 endif()
 
-# Enable C++17 support
-set(CMAKE_CXX_STANDARD 17)
+# Set output to the same folder with zeno.dll to prevent link failure
+set(OUTPUT_DIR ${PROJECT_SOURCE_DIR}/external/zeno/zenlib)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${OUTPUT_DIR})
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${OUTPUT_DIR})
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${OUTPUT_DIR})
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY_DEBUG ${OUTPUT_DIR})
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG ${OUTPUT_DIR})
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY_DEBUG ${OUTPUT_DIR})
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY_RELEASE ${OUTPUT_DIR})
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE ${OUTPUT_DIR})
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY_RELEASE ${OUTPUT_DIR})
+if (MSVC)
+    set(CMAKE_DEBUG_POSTFIX "")
+endif()
 
 # Import ZENO
 add_subdirectory(external/zeno)
 
-# Add your project
+# Add your ZENO node library
 add_subdirectory(YourProject)
-
-# Output zeno_YourProject.dll to external/zeno/zenqt/lib
-# so that ZENO editor will auto-load your extension on start up
-get_property(OUTPUT_DIR TARGET zeno
-    PROPERTY LIBRARY_OUTPUT_DIRECTORY)
-set_target_properties(zeno_YourProject PROPERTIES
-    LIBRARY_OUTPUT_DIRECTORY ${OUTPUT_DIR}
-    RUNTIME_OUTPUT_DIRECTORY ${OUTPUT_DIR}
-    ARCHIVE_OUTPUT_DIRECTORY ${OUTPUT_DIR}
-    LIBRARY_OUTPUT_DIRECTORY_DEBUG ${OUTPUT_DIR}
-    RUNTIME_OUTPUT_DIRECTORY_DEBUG ${OUTPUT_DIR}
-    ARCHIVE_OUTPUT_DIRECTORY_DEBUG ${OUTPUT_DIR}
-    LIBRARY_OUTPUT_DIRECTORY_RELEASE ${OUTPUT_DIR}
-    RUNTIME_OUTPUT_DIRECTORY_RELEASE ${OUTPUT_DIR}
-    ARCHIVE_OUTPUT_DIRECTORY_RELEASE ${OUTPUT_DIR}
-    )
