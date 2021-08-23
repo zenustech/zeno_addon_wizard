@@ -9,7 +9,7 @@ if (NOT CMAKE_BUILD_TYPE)
 endif()
 
 # Set output to the same folder with zeno.dll to prevent link failure
-set(OUTPUT_DIR ${PROJECT_SOURCE_DIR}/external/zeno/zenlib)
+set(OUTPUT_DIR ${PROJECT_SOURCE_DIR}/external/zeno/zenqt/bin)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${OUTPUT_DIR})
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${OUTPUT_DIR})
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${OUTPUT_DIR})
