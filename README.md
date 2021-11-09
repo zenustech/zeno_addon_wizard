@@ -10,6 +10,17 @@ git submodule update --init --recursive
 ```
 To fetch ZENO which is included a submodule.
 
+The following command installs a git alias named pullall that automates these two steps.
+```bash
+git config --global alias.pullall '!f(){ git pull "$@" && git submodule update --init --recursive; }; f'
+```
+
+Afterwards, simply write
+```
+git pullall
+```
+to fetch the latest version of ZENO
+
 ## Build
 
 - Linux
